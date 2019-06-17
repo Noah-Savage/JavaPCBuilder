@@ -1,0 +1,102 @@
+import java.util.*;
+
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        
+        double total = 0;
+        ArrayList<String> partList = new ArrayList<String>();
+        
+        ArrayList<String> parts = new ArrayList<String>();
+        parts.add("CPU");
+        parts.add("GPU");
+        parts.add("Motherboard");
+        parts.add("RAM");
+        parts.add("PSU");
+        parts.add("Cooler");
+        parts.add("Case");
+        
+        //Map of CPU models and prices
+        Map <String, Double> cpus = new HashMap<String, Double>();
+        cpus.put("Ryzen 3 2200G", 83.99);
+        cpus.put("Ryzen 5 2600",149.99);
+        cpus.put("Ryzen 7 2700", 209.99);
+        cpus.put("Ryzen 9 3950X", 749.99);
+        cpus.put("i3-9300", 104.99);
+        cpus.put("i5-9400", 194.99);
+        cpus.put("i7-9700K", 409.99);
+        cpus.put("i9-9900k", 494.99);
+        
+        //List of models for printing
+        ArrayList<String> cpuList = new ArrayList<String>();
+        cpuList.add("Ryzen 3 2200G");
+        cpuList.add("Ryzen 5 2600");
+        cpuList.add("Ryzen 7 2700");
+        cpuList.add("Ryzen 9 3950X");
+        cpuList.add("i3-9300");
+        cpuList.add("i5-9400");
+        cpuList.add("i7-9700K");
+        cpuList.add("i9-9900K");
+        
+        //Map of GPU models and prices
+        Map <String, Double> gpus = new HashMap<String, Double>();
+        gpus.put("GTX 1050ti", 149.99);
+        gpus.put("GTX 1660ti", 239.99);
+        gpus.put("RTX 2070", 519.99);
+        gpus.put("RTX 2080ti", 1349.99);
+        gpus.put("RX 570", 119.99);
+        gpus.put("RX 590", 219.99);
+        gpus.put("Vega 64", 339.99);
+        gpus.put("Radeon VII", 699.99);
+        
+        //List of models for printing
+        ArrayList<String> gpuList = new ArrayList<String>();
+        gpuList.add("GTX 1050ti");
+        gpuList.add("GTX 1660ti");
+        gpuList.add("RTX 2070");
+        gpuList.add("RTX 2080ti");
+        gpuList.add("RX 570");
+        gpuList.add("RX 590");
+        gpuList.add("Vega 64");
+        gpuList.add("Radeon VII");
+    
+        
+        
+        System.out.print("What part would you like to add first? ");
+        String thisPart = in.nextLine();
+        while(!parts.contains(thisPart)){
+            System.out.print("\nError! Not a valid part! Enter another: ");
+            thisPart = in.nextLine();
+        }
+        
+        if(thisPart.equals("CPU")){
+            System.out.println("\nHere are your options for CPU: ");
+            for(int i = 0; i < cpus.size(); i++){
+                System.out.println(cpuList.get(i));
+            }
+            System.out.print("\nPlease select a model: ");
+            String cpuSel = in.nextLine();
+            while(!cpuList.contains(cpuSel)){
+                System.out.print("That is invalid! Choose from the list: ");
+                cpuSel = in.nextLine();
+            }
+            partList.add(cpuSel);
+            total += (cpus.get(cpuSel));
+        }
+        
+        if(thisPart.equals("GPU")){
+            System.out.println("\nHere are your options for GPU: ");
+            for(int i = 0; i < cpus.size(); i++){
+                System.out.println(gpuList.get(i));
+            }
+            System.out.print("\nPlease select a model: ");
+            String gpuSel = in.nextLine();
+            while(!gpuList.contains(gpuSel)){
+                System.out.print("That is invalid! Choose from the list: ");
+                gpuSel = in.nextLine();
+            }
+            partList.add(gpuSel);
+            total += (gpus.get(gpuSel));
+        }
+    }
+}
