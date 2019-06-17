@@ -4,6 +4,8 @@ public class MyClass {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         
+        String cont = "";
+        
         double total = 0;
         ArrayList<String> partList = new ArrayList<String>();
         
@@ -19,7 +21,7 @@ public class MyClass {
         //Map of CPU models and prices
         Map <String, Double> cpus = new HashMap<String, Double>();
         cpus.put("Ryzen 3 2200G", 83.99);
-        cpus.put("Ryzen 5 2600",149.99);
+        cpus.put("Ryzen 5 2600", 149.99);
         cpus.put("Ryzen 7 2700", 209.99);
         cpus.put("Ryzen 9 3950X", 749.99);
         cpus.put("i3-9300", 104.99);
@@ -59,44 +61,99 @@ public class MyClass {
         gpuList.add("RX 590");
         gpuList.add("Vega 64");
         gpuList.add("Radeon VII");
-    
         
+        //Map of motherboard models and prices
+        Map <String, Double> mobos = new HashMap<String, Double>();
+        mobos.put("ASUS B450 PRIME", 78.99);
+        mobos.put("ASUS X470 ROG Strix", 194.99);
+        mobos.put("MSI B450 PRO", 99.99);
+        mobos.put("MSI X470 GAMING PRO CARBON", 190.99);
+        mobos.put("ASUS H310 PRIME", 69.99);
+        mobos.put("ASUS Z370 PRIME", 149.99);
+        mobos.put("MSI H310 PRO", 74.99);
+        mobos.put("MSI Z370 GAMING PRO CARBON", 209.99);
         
-        System.out.print("What part would you like to add first? ");
-        String thisPart = in.nextLine();
-        while(!parts.contains(thisPart)){
-            System.out.print("\nError! Not a valid part! Enter another: ");
-            thisPart = in.nextLine();
+        //List of motherboards for printing
+        ArrayList<String> moboList = new ArrayList<String>();
+        moboList.add("ASUS B450 PRIME");
+        moboList.add("ASUS X470 ROG Strix");
+        moboList.add("MSI B450 PRO");
+        moboList.add("MSI X470 GAMING PRO CARBON");
+        moboList.add("ASUS H310 PRIME");
+        moboList.add("ASUS Z370 PRIME");
+        moboList.add("MSI H310 PRO");
+        moboList.add("MSI Z370 GAMING PRO CARBON");
+        
+        while(!cont.equals("exit")){
+        
+            //Figure out which part the user wants to select
+            System.out.print("What part would you like to add? ");
+            String thisPart = in.nextLine();
+            while(!parts.contains(thisPart)){
+                System.out.print("\nError! Not a valid part! Enter another: ");
+                thisPart = in.nextLine();
+            }
+            
+            //Handle selection of CPU
+            if(thisPart.equals("CPU")){
+                System.out.println("\nHere are your options for CPU: ");
+                for(int i = 0; i < cpus.size(); i++){
+                    System.out.println(cpuList.get(i));    
+                
+                }
+                System.out.print("\nPlease select a model: ");
+                String cpuSel = in.nextLine();
+                while(!cpuList.contains(cpuSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    cpuSel = in.nextLine();
+                }
+                partList.add(cpuSel);
+                total += (cpus.get(cpuSel));
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
+            //Handle selection of GPU
+            if(thisPart.equals("GPU")){
+                System.out.println("\nHere are your options for GPU: ");
+                for(int i = 0; i < cpus.size(); i++){
+                    System.out.println(gpuList.get(i));
+                }
+                System.out.print("\nPlease select a model: ");
+                String gpuSel = in.nextLine();
+                while(!gpuList.contains(gpuSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    gpuSel = in.nextLine();
+                }
+                partList.add(gpuSel);
+                total += (gpus.get(gpuSel));
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
+            //Handle selection of motherboard
+            if(thisPart.equals("Motherboard")){
+                System.out.println("\nHere are your options for motherboard: ");
+                for(int i = 0; i < moboList.size(); i++){
+                    System.out.println(moboList.get(i));
+                }
+                System.out.print("\nPlease select a model: ");
+                String moboSel = in.nextLine();
+                while(!moboList.contains(moboSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    moboSel = in.nextLine();
+                }
+                partList.add(moboSel);
+                total += (mobos.get(moboSel));
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
         }
-        
-        if(thisPart.equals("CPU")){
-            System.out.println("\nHere are your options for CPU: ");
-            for(int i = 0; i < cpus.size(); i++){
-                System.out.println(cpuList.get(i));
-            }
-            System.out.print("\nPlease select a model: ");
-            String cpuSel = in.nextLine();
-            while(!cpuList.contains(cpuSel)){
-                System.out.print("That is invalid! Choose from the list: ");
-                cpuSel = in.nextLine();
-            }
-            partList.add(cpuSel);
-            total += (cpus.get(cpuSel));
+        System.out.print("\nThank you! Here is your PC: \n");
+        for(int i = 0; i < partList.size(); i++){
+            System.out.println(partList.get(i));
         }
-        
-        if(thisPart.equals("GPU")){
-            System.out.println("\nHere are your options for GPU: ");
-            for(int i = 0; i < cpus.size(); i++){
-                System.out.println(gpuList.get(i));
-            }
-            System.out.print("\nPlease select a model: ");
-            String gpuSel = in.nextLine();
-            while(!gpuList.contains(gpuSel)){
-                System.out.print("That is invalid! Choose from the list: ");
-                gpuSel = in.nextLine();
-            }
-            partList.add(gpuSel);
-            total += (gpus.get(gpuSel));
-        }
+        System.out.println("\n$" + total);
     }
 }
