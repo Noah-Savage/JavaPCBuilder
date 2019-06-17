@@ -5,6 +5,8 @@ public class MyClass {
         Scanner in = new Scanner(System.in);
         
         String cont = "";
+        String procSoc = "";
+        String moboSoc = "";
         
         double total = 0;
         ArrayList<String> partList = new ArrayList<String>();
@@ -107,6 +109,23 @@ public class MyClass {
                     System.out.print("That is invalid! Choose from the list: ");
                     cpuSel = in.nextLine();
                 }
+                if(cpuSel.charAt(0) == 'R'){
+                    procSoc = "AMD";
+                }
+                else{
+                    procSoc = "INTEL";
+                }
+                //Check to make sure CPU and motherboard are compatible
+                while((procSoc.equals("AMD") && moboSoc.equals("INTEL")) || (procSoc.equals("INTEL") && moboSoc.equals("AMD"))){
+                    System.out.print("Incompatible selection! Choose a CPU that is compatible with your motherboard: ");
+                    cpuSel = in.nextLine();
+                    if(cpuSel.charAt(0) == 'R'){
+                    procSoc = "AMD";
+                    }
+                    else{
+                        procSoc = "INTEL";
+                    }
+                }
                 partList.add(cpuSel);
                 total += (cpus.get(cpuSel));
                 System.out.print("Would you like to continue? ('exit' to exit) ");
@@ -142,6 +161,23 @@ public class MyClass {
                 while(!moboList.contains(moboSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     moboSel = in.nextLine();
+                }
+                if(moboSel.contains("4")){
+                    moboSoc = "AMD";
+                }
+                else{
+                    moboSoc = "INTEL";
+                }
+                //Check to make sure CPU and motherboard are compatible
+                while((procSoc.equals("AMD") && moboSoc.equals("INTEL")) || (procSoc.equals("INTEL") && moboSoc.equals("AMD"))){
+                    System.out.print("Incompatible selection! Choose a CPU that is compatible with your motherboard: ");
+                    moboSel = in.nextLine();
+                    if(moboSel.charAt(0) == 'R'){
+                    procSoc = "AMD";
+                    }
+                    else{
+                        procSoc = "INTEL";
+                    }
                 }
                 partList.add(moboSel);
                 total += (mobos.get(moboSel));
