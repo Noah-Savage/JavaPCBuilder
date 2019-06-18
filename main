@@ -87,8 +87,35 @@ public class MyClass {
         moboList.add("MSI Z370 GAMING PRO CARBON");
         
         //Map of PSU models and prices
-        ArrayList<String> psuList = new ArrayList<String>();
+        Map <String, Double> psus = new HashMap<String, Double>();
+        psus.put("Corsair CX550 Gold", 61.99);
+        psus.put("Corsair HX 1200 Platinum", 226.99);
+        psus.put("EVGA G2 550 Gold", 59.99);
+        psus.put("EVGA SUPERNOVA 1600 Platinum", 329.99);
+        psus.put("Thermaltake TR2 600 Gold", 53.99);
+        psus.put("Thermaltake TOUGHPOWER PLUS 1050 Platinum", 279.99);
         
+        
+        //List of PSUs for printing
+        ArrayList<String> psuList = new ArrayList<String>();
+        psuList.add("Corsair CX550 Gold");
+        psuList.add("Corsair HX 1200 Platinum");
+        psuList.add("EVGA G2 550 Gold");
+        psuList.add("EVGA SUPERNOVA 1600 Platinum");
+        psuList.add("Thermaltake TR2 600 Gold");
+        psuList.add("Thermaltake TOUGHPOWER PLUS 1050 Platinum");
+        
+        //Map of RAM models and prices
+        Map <String, Double> rams = new HashMap<String, Double>();
+        
+        //List of RAM for printing
+        ArrayList<String> ramList = new ArrayList<String>();
+        
+        //Map of Coolers models and prices
+        Map <String, Double> cools = new HashMap<String, Double>();
+        
+        //List of coolers for printing
+        ArrayList<String> coolList = new ArrayList<String>();
         
         
         while(!cont.equals("exit")){
