@@ -86,6 +86,11 @@ public class MyClass {
         moboList.add("MSI H310 PRO");
         moboList.add("MSI Z370 GAMING PRO CARBON");
         
+        //Map of PSU models and prices
+        ArrayList<String> psuList = new ArrayList<String>();
+        
+        
+        
         while(!cont.equals("exit")){
         
             //Figure out which part the user wants to select
@@ -187,6 +192,42 @@ public class MyClass {
                 }
                 partList.add(ramSel);
                 total += rams.get(ramSel);
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
+            //Handle selection of PSU
+            if(thisPart.equals("PSU")){
+                System.out.println("\nHere are your options for PSU: ");
+                for(int i = 0; i < psuList.size(); i++){
+                    System.out.println(psuList.get(i));
+                }
+                System.out.print("Please select a model: ");
+                String psuSel = in.nextLine();
+                while(!psuList.contains(psuSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    psuSel = in.nextLine();
+                }
+                partList.add(psuSel);
+                total += psus.get(psuSel);
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
+            //Handle selection of Cooler
+            if(thisPart.equals("Cooler")){
+                System.out.println("\nHere are your options for cooler: ");
+                for(int i = 0; i < coolList.size(); i++){
+                    System.out.println(coolList.get(i));
+                }
+                System.out.print("Please select a model: ");
+                String coolSel = in.nextLine();
+                while(!coolList.contains(coolSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    coolSel = in.nextLine();
+                }
+                partList.add(coolSel);
+                total += cools.get(coolSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
             }
