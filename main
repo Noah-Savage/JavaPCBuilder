@@ -115,7 +115,6 @@ public class MyClass {
                 else{
                     procSoc = "INTEL";
                 }
-                //Check to make sure CPU and motherboard are compatible
                 while((procSoc.equals("AMD") && moboSoc.equals("INTEL")) || (procSoc.equals("INTEL") && moboSoc.equals("AMD"))){
                     System.out.print("Incompatible selection! Choose a CPU that is compatible with your motherboard: ");
                     cpuSel = in.nextLine();
@@ -162,25 +161,32 @@ public class MyClass {
                     System.out.print("That is invalid! Choose from the list: ");
                     moboSel = in.nextLine();
                 }
-                if(moboSel.contains("4")){
+                if(moboSel.charAt(0) == 'R'){
                     moboSoc = "AMD";
                 }
                 else{
                     moboSoc = "INTEL";
                 }
-                //Check to make sure CPU and motherboard are compatible
-                while((procSoc.equals("AMD") && moboSoc.equals("INTEL")) || (procSoc.equals("INTEL") && moboSoc.equals("AMD"))){
-                    System.out.print("Incompatible selection! Choose a CPU that is compatible with your motherboard: ");
-                    moboSel = in.nextLine();
-                    if(moboSel.charAt(0) == 'R'){
-                    procSoc = "AMD";
-                    }
-                    else{
-                        procSoc = "INTEL";
-                    }
-                }
                 partList.add(moboSel);
                 total += (mobos.get(moboSel));
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
+            //Handle selection of RAM
+            if(thisPart.equals("RAM")){
+                System.out.println("\nHere are your options for RAM: ");
+                for(int i = 0; i < ramList.size(); i++){
+                    System.out.println(ramList.get(i));
+                }
+                System.out.print("Please select a model: ");
+                String ramSel = in.nextLine();
+                while(!ramList.contains(ramSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    ramSel = in.nextLine();
+                }
+                partList.add(ramSel);
+                total += rams.get(ramSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
             }
