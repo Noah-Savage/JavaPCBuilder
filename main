@@ -107,6 +107,13 @@ public class MyClass {
         
         //Map of cooler models and prices
         Map<String, Double> cools = new HashMap<String, Double>();
+        cools.put("Hyper 212 Evo", 24.99);
+        cools.put("Noctua NH-D9L", 54.95);
+        cools.put("Noctua NH-D15", 89.95);
+        cools.put("EVGA CLC 240", 109.99);
+        cools.put("NZXT X72 Kraken", 182.99);
+        cools.put("Corsair H100i", 139.99);
+        cools.put("Corsair H150i", 179.99);
         
         //List of coolers for printing
         ArrayList<String> coolList = new ArrayList<String>();
@@ -121,6 +128,14 @@ public class MyClass {
         
         //Map of RAM models and prices
         Map<String, Double> rams = new HashMap<String, Double>();
+        rams.put("Corsair Vengeance 2x4", 45.99);
+        rams.put("Corsair Vengeance 2x8", 69.99);
+        rams.put("Corsair Vengeance RGB 2x16", 169.99);
+        rams.put("G.Skill TridentZ 2x4", 59.99);
+        rams.put("G.Skill TridentZ 2x8", 99.99);
+        rams.put("G.Skill Royal 2x16", 174.99);
+        rams.put("Crucial Ballistix 2x4", 42.99);
+        rams.put("Crucial Ballistix 2x8", 74.99);
         
         //List of RAM for printing
         ArrayList<String> ramList = new ArrayList<String>();
@@ -130,8 +145,8 @@ public class MyClass {
         ramList.add("G.Skill TridentZ 2x4");
         ramList.add("G.Skill TridentZ 2x8");
         ramList.add("G.Skill Royal 2x16");
-        ramList.add("Crucial Sniper 2x4");
-        ramList.add("Crucial Sniper 2x8");
+        ramList.add("Crucial Ballistix 2x4");
+        ramList.add("Crucial Ballistix 2x8");
         
         
         while(!cont.equals("exit")){
