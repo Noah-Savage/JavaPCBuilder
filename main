@@ -8,6 +8,14 @@ public class MyClass {
         String procSoc = "";
         String moboSoc = "";
         
+        boolean hasCPU = false;
+        boolean hasGPU = false;
+        boolean hasMobo = false;
+        boolean hasRAM = false;
+        boolean hasPSU = false;
+        boolean hasCool = false;
+        boolean hasCase = false;
+        
         double total = 0;
         ArrayList<String> partList = new ArrayList<String>();
         
@@ -178,7 +186,7 @@ public class MyClass {
             }
             
             //Handle selection of CPU
-            if(thisPart.equals("CPU")){
+            if(thisPart.equals("CPU") && hasCPU == false){
                 System.out.println("\nHere are your options for CPU: ");
                 for(int i = 0; i < cpus.size(); i++){
                     System.out.println(cpuList.get(i));    
@@ -212,10 +220,15 @@ public class MyClass {
                 total += (cpus.get(cpuSel));
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasCPU = true;
+            }
+            else{
+                System.out.print("You've already selected that part! Choose another: ");
+                thisPart = in.nextLine();
             }
             
             //Handle selection of GPU
-            if(thisPart.equals("GPU")){
+            if(thisPart.equals("GPU") && hasGPU == false){
                 System.out.println("\nHere are your options for GPU: ");
                 for(int i = 0; i < cpus.size(); i++){
                     System.out.println(gpuList.get(i));
@@ -231,10 +244,11 @@ public class MyClass {
                 total += (gpus.get(gpuSel));
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasGPU = true;
             }
             
             //Handle selection of motherboard
-            if(thisPart.equals("Motherboard")){
+            if(thisPart.equals("Motherboard") && hasMobo == false;){
                 System.out.println("\nHere are your options for motherboard: ");
                 for(int i = 0; i < moboList.size(); i++){
                     System.out.println(moboList.get(i));
@@ -267,10 +281,15 @@ public class MyClass {
                 total += (mobos.get(moboSel));
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasMobo = true;
+            }
+            else{
+                System.out.print("You've already selected that part! Choose another: ");
+                thisPart = in.nextLine();
             }
             
             //Handle selection of RAM
-            if(thisPart.equals("RAM")){
+            if(thisPart.equals("RAM") && hasRAM == false){
                 System.out.println("\nHere are your options for RAM: ");
                 for(int i = 0; i < ramList.size(); i++){
                     System.out.println(ramList.get(i));
@@ -286,10 +305,15 @@ public class MyClass {
                 total += rams.get(ramSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasRAM = true;
+            }
+            else{
+                System.out.print("You've already selected that part! Choose another: ");
+                thisPart = in.nextLine();
             }
             
             //Handle selection of PSU
-            if(thisPart.equals("PSU")){
+            if(thisPart.equals("PSU") && hasPSU == false){
                 System.out.println("\nHere are your options for PSU: ");
                 for(int i = 0; i < psuList.size(); i++){
                     System.out.println(psuList.get(i));
@@ -305,10 +329,15 @@ public class MyClass {
                 total += psus.get(psuSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasPSU = true;
+            }
+            else{
+                System.out.print("You've already selected that part! Choose another: ");
+                thisPart = in.nextLine();
             }
             
             //Handle selection of Cooler
-            if(thisPart.equals("Cooler")){
+            if(thisPart.equals("Cooler") && hasCool == false){
                 System.out.println("\nHere are your options for cooler: ");
                 for(int i = 0; i < coolList.size(); i++){
                     System.out.println(coolList.get(i));
@@ -324,10 +353,15 @@ public class MyClass {
                 total += cools.get(coolSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasCool = true;
+            }
+            else{
+                System.out.print("You've already selected that part! Choose another: ");
+                thisPart = in.nextLine();
             }
             
             //Handle selection of cases
-            if(thisPart.equals("Case")){
+            if(thisPart.equals("Case") && hasCase == false){
                 System.out.println("\nHere are your options for cases: ");
                 for(int i = 0; i < caseList.size(); i++){
                     System.out.println(caseList.get(i));
@@ -343,6 +377,11 @@ public class MyClass {
                 total += cases.get(caseSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
+                hasCase = true;
+            }
+            else{
+                System.out.print("You've already selected that part! Choose another: ");
+                thisPart = in.nextLine();
             }
             
         }
