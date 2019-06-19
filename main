@@ -148,6 +148,24 @@ public class MyClass {
         ramList.add("Crucial Ballistix 2x4");
         ramList.add("Crucial Ballistix 2x8");
         
+        //Map of case models and prices
+        Map<String, Double> cases = new HashMap<String, Double>();
+        cases.put("NZXT H500i", 67.99);
+        cases.put("Phanteks P600S", 149.99);
+        cases.put("Corsair Carbide 275R", 84.99);
+        cases.put("Cooler Master H500 Mesh", 124.99);
+        cases.put("Dark Base 700 Pro", 179.99);
+        cases.put("Corsair Vengeance C70", 159.99);
+        
+        //List of cases for printing
+        ArrayList<String> caseList = new ArrayList<String>();
+        caseList.add("NZXT H500i");
+        caseList.add("Phanteks P600S");
+        caseList.add("Corsair Carbide 275R");
+        caseList.add("Cooler Master H500 Mesh");
+        caseList.add("Dark Base 700 Pro");
+        caseList.add("Corsair Vengeance C70");
+        
         
         while(!cont.equals("exit")){
         
@@ -286,6 +304,24 @@ public class MyClass {
                 }
                 partList.add(coolSel);
                 total += cools.get(coolSel);
+                System.out.print("Would you like to continue? ('exit' to exit) ");
+                cont = in.nextLine();
+            }
+            
+            //Handle selection of cases
+            if(thisPart.equals("Case")){
+                System.out.println("\nHere are your options for cases: ");
+                for(int i = 0; i < caseList.size(); i++){
+                    System.out.println(caseList.get(i));
+                }
+                System.out.print("Please select a model: ");
+                String caseSel = in.nextLine();
+                while(!caseList.contains(caseSel)){
+                    System.out.print("That is invalid! Choose from the list: ");
+                    caseSel = in.nextLine();
+                }
+                partList.add(caseSel);
+                total += cases.get(caseSel);
                 System.out.print("Would you like to continue? ('exit' to exit) ");
                 cont = in.nextLine();
             }
