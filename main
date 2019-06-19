@@ -186,10 +186,12 @@ public class MyClass {
                 }
                 System.out.print("\nPlease select a model: ");
                 String cpuSel = in.nextLine();
+                //Ensure part is on the list
                 while(!cpuList.contains(cpuSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     cpuSel = in.nextLine();
                 }
+                //Check for mobo/cpu compatibility
                 if(cpuSel.charAt(0) == 'R'){
                     procSoc = "AMD";
                 }
@@ -220,6 +222,7 @@ public class MyClass {
                 }
                 System.out.print("\nPlease select a model: ");
                 String gpuSel = in.nextLine();
+                //Ensure part is on the list
                 while(!gpuList.contains(gpuSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     gpuSel = in.nextLine();
@@ -238,15 +241,27 @@ public class MyClass {
                 }
                 System.out.print("\nPlease select a model: ");
                 String moboSel = in.nextLine();
+                //Ensure part is on the list
                 while(!moboList.contains(moboSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     moboSel = in.nextLine();
                 }
+                //Check for mobo/cpu compatibility
                 if(moboSel.charAt(0) == 'R'){
                     moboSoc = "AMD";
                 }
                 else{
                     moboSoc = "INTEL";
+                }
+                while((procSoc.equals("AMD") && moboSoc.equals("INTEL")) || (procSoc.equals("INTEL") && moboSoc.equals("AMD"))){
+                    System.out.print("Incompatible selection! Choose a CPU that is compatible with your motherboard: ");
+                    moboSel = in.nextLine();
+                    if(moboSel.charAt(0) == 'R'){
+                    moboSoc = "AMD";
+                    }
+                    else{
+                        moboSoc = "INTEL";
+                    }
                 }
                 partList.add(moboSel);
                 total += (mobos.get(moboSel));
@@ -262,6 +277,7 @@ public class MyClass {
                 }
                 System.out.print("Please select a model: ");
                 String ramSel = in.nextLine();
+                //Ensure part is on the list
                 while(!ramList.contains(ramSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     ramSel = in.nextLine();
@@ -280,6 +296,7 @@ public class MyClass {
                 }
                 System.out.print("Please select a model: ");
                 String psuSel = in.nextLine();
+                //Ensure part is on the list
                 while(!psuList.contains(psuSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     psuSel = in.nextLine();
@@ -298,6 +315,7 @@ public class MyClass {
                 }
                 System.out.print("Please select a model: ");
                 String coolSel = in.nextLine();
+                //Ensure part is on the list
                 while(!coolList.contains(coolSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     coolSel = in.nextLine();
@@ -316,6 +334,7 @@ public class MyClass {
                 }
                 System.out.print("Please select a model: ");
                 String caseSel = in.nextLine();
+                //Ensure part is on the list
                 while(!caseList.contains(caseSel)){
                     System.out.print("That is invalid! Choose from the list: ");
                     caseSel = in.nextLine();
