@@ -105,17 +105,33 @@ public class MyClass {
         psuList.add("Thermaltake TR2 600 Gold");
         psuList.add("Thermaltake TOUGHPOWER PLUS 1050 Platinum");
         
-        //Map of RAM models and prices
-        Map <String, Double> rams = new HashMap<String, Double>();
-        
-        //List of RAM for printing
-        ArrayList<String> ramList = new ArrayList<String>();
-        
-        //Map of Coolers models and prices
-        Map <String, Double> cools = new HashMap<String, Double>();
+        //Map of cooler models and prices
+        Map<String, Double> cools = new HashMap<String, Double>();
         
         //List of coolers for printing
         ArrayList<String> coolList = new ArrayList<String>();
+        coolList.add("Hyper 212 Evo");
+        coolList.add("Noctua NH-D9L");
+        coolList.add("Noctua NH-D15");
+        coolList.add("EVGA CLC 240");
+        coolList.add("EVGA CLC 360");
+        coolList.add("Corsair H100i");
+        coolList.add("Corsair H150i");
+        
+        
+        //Map of RAM models and prices
+        Map<String, Double> rams = new HashMap<String, Double>();
+        
+        //List of RAM for printing
+        ArrayList<String> ramList = new ArrayList<String>();
+        ramList.add("Corsair Vengeance 2x4");
+        ramList.add("Corsair Vengeance 2x8");
+        ramList.add("Corsair Dominator 2x16");
+        ramList.add("G.Skill TridentZ 2x4");
+        ramList.add("G.Skill TridentZ 2x8");
+        ramList.add("G.Skill Royal 2x16");
+        ramList.add("Crucial Sniper 2x4");
+        ramList.add("Crucial Sniper 2x8");
         
         
         while(!cont.equals("exit")){
